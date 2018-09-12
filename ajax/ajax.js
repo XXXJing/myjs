@@ -47,9 +47,11 @@ var myAjax = {
 		function getParams(data){
 			var arr = [];
 			for(var key in data){
-				arr.push(key + "=" +data[key]);
+				//对参数进行编码
+				arr.push(encodeURIComponent(key) + "=" +encodeURIComponent(data[key]));
 			}
 			return arr.join("&");
 		}
+
 	}
 };
