@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<script src="ajax.js"></script>
+<script>
+	window.onload = function(){
+		var one = document.getElementById("one");
+		myAjax.ajax({
+			url:"readme.txt",
+			type:"GET",
+			async:false,
+			data:{
+				name:"xiejing",
+				age:"2222"
+			},
+			success:function(data){
+				one.innerHTML = data;
+			}
+		});
+	}
+</script>
+<body>
+	<div id = "one"></div>
+</body>
+</html>
