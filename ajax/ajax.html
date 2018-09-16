@@ -7,9 +7,8 @@
 <script src="ajax.js"></script>
 <script>
 	window.onload = function(){
-		var one = document.getElementById("one");
 		myAjax.ajax({
-			url:"readme.txt",
+			url:"readme.json",
 			type:"GET",
 			async:false,
 			data:{
@@ -17,9 +16,17 @@
 				age:"2222"
 			},
 			success:function(data){
-				one.innerHTML = data;
+				setDiv(data);
 			}
 		});
+		function getJson(jsonText){
+		    return JSON.parse(jsonText);
+		}
+		function setDiv (data){
+			var personInfo = getJson(data);
+            var one = document.getElementById("one");
+            one.innerHTML = "name ="+personInfo.name+",age ="+personInfo.age;
+		}
 	}
 </script>
 <body>
