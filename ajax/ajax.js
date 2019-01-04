@@ -26,7 +26,12 @@ var myAjax = {
 	ajax:function(options){
 		xhr = this.createXHR();
 		var params = getParams(options.data);
-		options.async = options.async=='undefined'?true:options.async;
+		if(typeof options.async!=="boolean"){
+			options.async = true;
+		}else{
+            options.async = options.async==='undefined'?true:options.async;git
+		}
+
 		if(options.type == "GET"){
 			//get请求
 			xhr.open(options.type,options.url+"?"+params,options.async);
