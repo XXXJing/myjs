@@ -29,7 +29,7 @@ var myAjax = {
 		if(typeof options.async!=="boolean"){
 			options.async = true;
 		}else{
-            options.async = options.async==='undefined'?true:options.async;git
+            options.async = options.async==='undefined'?true:options.async;
 		}
 
 		if(options.type == "GET"){
