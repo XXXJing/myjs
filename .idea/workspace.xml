@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="614cb779-4441-4db1-9af0-9c0a4dec50b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/max_sub_array/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/max_sub_array/note.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/EventUtil.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cookieUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cookieUtil.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +41,16 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/leetcode/max_sub_array/index.js" working-dir="$PROJECT_DIR$/leetcode/max_sub_array">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -53,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1546572037430</updated>
       <workItem from="1546572039638" duration="636000" />
-      <workItem from="1576051456812" duration="128000" />
+      <workItem from="1576051456812" duration="5458000" />
     </task>
     <servers />
   </component>
