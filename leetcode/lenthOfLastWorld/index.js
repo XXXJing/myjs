@@ -37,7 +37,7 @@ lengthOfLastWord(testStr); // 1
  * 字符串的操作 substr 、 substring slice 的区别
  * 相同点： 两者都是切割字符串并返回被切割的字符串
  * 不同：
- *  substr
+ *  substr  此方法未来可能被废弃
  *      substr(start[, length]) 是从开始的位置切割字符串，第二个参数表示要切割的长度
  *      @param start  required 字符串切割开始的位置 如果start为负数，则start=str.length+start。
  *      @param length 字符串切割的长度 ， 不指定长度切割至末尾 如果 length 为 0 或负数，将返回一个空字符串。
@@ -50,7 +50,7 @@ lengthOfLastWord(testStr); // 1
                         如果 start 比 end 大，那么该方法在提取子串之前会先交换这两个参数。
                         如果 start 或 end 为负数，那么它将被替换为 0。
 
-    slice(start, end)   从开始的位置切割，至结束位置（不包含结束位置） slice() 提取的新字符串包括beginIndex但不包括 endIndex
+    slice(start, end)   从开始的位置切割，至结束位置（不包含结束位置） slice() 提取的新字符串包括start但不包括 end
         @param start    从该索引（以 0 为基数）处开始提取原字符串中的字符。
                         如果值为负数，会被当做 strLength + start 看待，
                         这里的strLength 是字符串的长度
