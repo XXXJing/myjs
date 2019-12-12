@@ -34,18 +34,31 @@ lengthOfLastWord(testStr); // 1
 
 /**
  * note
- * 字符串的操作 substr 和 substring 的区别
+ * 字符串的操作 substr 、 substring slice 的区别
  * 相同点： 两者都是切割字符串并返回被切割的字符串
  * 不同：
  *  substr
  *      substr(start[, length]) 是从开始的位置切割字符串，第二个参数表示要切割的长度
  *      @param start  required 字符串切割开始的位置 如果start为负数，则start=str.length+start。
  *      @param length 字符串切割的长度 ， 不指定长度切割至末尾 如果 length 为 0 或负数，将返回一个空字符串。
+ *
  *  substring
  *      substring(starNumber, end) 从开始的位置切割，至结束位置（不包含结束位置）
  *      @param start  required 字符串切割开始的位置 非负数
- *      @param end 字符串切割结束的位置，不包含该位置，不指定切割至末尾
- *      如果 start 与 end 相等，那么该方法返回的就是一个空串（即长度为 0 的字符串）。
-        如果 start 比 end 大，那么该方法在提取子串之前会先交换这两个参数。
-        如果 start 或 end 为负数，那么它将被替换为 0。
+ *      @param end      字符串切割结束的位置，不包含该位置，不指定切割至末尾
+ *                      如果 start 与 end 相等，那么该方法返回的就是一个空串（即长度为 0 的字符串）。
+                        如果 start 比 end 大，那么该方法在提取子串之前会先交换这两个参数。
+                        如果 start 或 end 为负数，那么它将被替换为 0。
+
+    slice(start, end)   从开始的位置切割，至结束位置（不包含结束位置） slice() 提取的新字符串包括beginIndex但不包括 endIndex
+        @param start    从该索引（以 0 为基数）处开始提取原字符串中的字符。
+                        如果值为负数，会被当做 strLength + start 看待，
+                        这里的strLength 是字符串的长度
+                        （例如， 如果 start 是 -3 则看作是：strLength - 3）
+
+
+        @param end      可选。在该索引（以 0 为基数）处结束提取字符串。
+                        如果省略该参数，slice() 会一直提取到字符串末尾。
+                        如果该参数为负数，则被看作是 strLength + end，这里的 strLength 就是字符串的长度
+                        (例如，如果 end 是 -3，则是, strLength - 3)。
 * */

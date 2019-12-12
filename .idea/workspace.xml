@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="614cb779-4441-4db1-9af0-9c0a4dec50b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/leetcode/lenthOfLastWorld/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/lenthOfLastWorld/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/lenthOfLastWorld/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +66,7 @@
       <updated>1546572037430</updated>
       <workItem from="1546572039638" duration="636000" />
       <workItem from="1576051456812" duration="7116000" />
-      <workItem from="1576113934585" duration="5429000" />
+      <workItem from="1576113934585" duration="7288000" />
     </task>
     <servers />
   </component>
