@@ -19,7 +19,7 @@ var twoSum = function(nums, target) {
       return 0;
     }
 };
-// const nums = [2,7,11,15];
-// const result  = twoSum(nums, 9);
-// console.log(result);
+const nums = [3,2,4];
+const result  = twoSum(nums, 6);
+console.log(result);
 
