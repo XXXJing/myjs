@@ -13,7 +13,7 @@
 const maxSubArray2 = (nums) => {
     // 当nums数组为空时，
     if(!nums.length) throw new Error('参数错误');
-    // 在每次循环结束以后，计算以改点结束的子字符串的最大和
+    // 在每次循环结束以后，计算以该点结束的子字符串的最大和
     let result = nums[0], mid = 0;
     const len = nums.length;
     for (let i = 1; i< len; i++) {

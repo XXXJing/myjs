@@ -16,10 +16,10 @@ var twoSum = function(nums, target) {
       const nextIndex = temp[nums[i]];
       // 得到符合条件的数字下标， 并且判断是否是数字本身
       if(nextIndex !== undefined && nextIndex !== i) return [i, nextIndex]
-      return 0;
-    }
+    
+}
 };
 const nums = [3,2,4];
-const result  = twoSum(nums, 6);
+const result  = twoSum(nums, );
 console.log(result);
 
