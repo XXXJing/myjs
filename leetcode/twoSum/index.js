@@ -19,6 +19,8 @@ var twoSum = function(nums, target) {
     
 }
 };
+
+// 用例1 测试数组234 ，正常
 const nums = [3,2,4];
 const result  = twoSum(nums, );
 console.log(result);
