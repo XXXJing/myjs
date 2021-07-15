@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="mycavas" width="1000px" height="768px"></canvas>
+
+    <span>选择颜色</span>
+    <button class="btn red" data-color='red'></button>
+    <button class="btn blue" data-color='blue'></button>
+    <button class="btn black" data-color='black'></button>
+    <button class="btn red" id="save" data-color='red'>保存图片</button>
+</body>
+
+
+<script type="text/javascript">
+    window.addEventListener('load', function() {
+        function setCanvasStyle(canvas, options) {
+            canvas.width = options.width;
+            canvas.height = options.height;
+        }
+
+        function getScreenInfo() {
+            const body = document.body;
+            return {
+                width: body.clientWidth,
+                height: body.clientHeight - 56,
+            }
+        }
+
+        const myCavas = document.getElementById('mycavas');
+        const styleOptions = getScreenInfo();
+        // 设置canvas
+        setCanvasStyle(myCavas, styleOptions);
+
+        let ctx = myCavas.getContext('2d')
+
+        class DrawPath {
+            constructor(ctx, dom) {
+                this.ctx = ctx;
+                this.dom = dom;
+                this.lastX = null;
+                this.lastY = null;
+                this.penColor = 'black';
+                this.getStatPoint();
+            }
+
+
+            setPenColor(color) {
+                this.penColor = color
+            }
+
+            getStatPoint() {
+
+                function handlerMouseDown(e) {
+                    this.lastX = e.offsetX;
+                    this.lastY = e.offsetY;
+                    this.getMove();
+                    this.stopMove();
+                }
+
+                const _handlerMouseDown = handlerMouseDown.bind(this);
+                this.dom.addEventListener('mousedown', _handlerMouseDown)
+            }
+
+            // 绘制鼠标路径
+            drawPath(ctx, x, y, color) {
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.strokeStyle = color;
+                ctx.linecap = "round"
+                ctx.lineJoin = 'round';
+                ctx.shadowBlur = 1;
+                ctx.shadowColor = color;
+                ctx.moveTo(this.lastX, this.lastY);
+                ctx.lineTo(x, y);
+                ctx.closePath();
+                ctx.stroke();
+                this.lastX = x;
+                this.lastY = y;
+            }
+
+            // 保存 bind后返回的函数， 用于取消事件绑定
+            _handlerMouseMove = null;
+
+            getMove() {
+                // 处理鼠标移动事件
+                function handlerMouseMove(e) {
+                    let x, y;
+                    x = e.offsetX;
+                    y = e.offsetY;
+                    this.drawPath(this.ctx, x, y, this.penColor);
+                }
+
+                this._handlerMouseMove = handlerMouseMove.bind(this);
+                this.dom.addEventListener('mousemove', this._handlerMouseMove)
+            }
+
+            // 鼠标抬起时 取消mousemove 事件绑定
+            stopMove() {
+                const handleMouseup = () => {
+                    this.dom.removeEventListener('mousemove', this._handlerMouseMove);
+                }
+                this.dom.addEventListener('mouseup', handleMouseup);
+            }
+
+            // 保存图片
+            saveImg(ctx) {
+                const dataUrl = ctx.toDataURL('image/png');
+                const img = new Image();
+                img.src = dataUrl;
+                return img;
+            }
+
+        };
+        const draw = new DrawPath(ctx, myCavas);
+
+
+        function setPenColor() {
+            const btnCollect = [...document.getElementsByClassName('btn')];
+            let color = 'black';
+            for (let btn of btnCollect) {
+                btn.addEventListener('click', handlerClick)
+            }
+
+            function handlerClick(e) {
+                color = this.getAttribute('data-color');
+                draw.setPenColor(color);
+                console.log(color)
+            }
+
+
+        }
+
+        setPenColor();
+        const saveBtn = document.getElementById('save')
+        saveBtn.onclick = function() {
+            const img = draw.saveImg(myCavas);
+            document.body.appendChild(img);
+        }
+
+    })
+</script>
+
+<style>
+    #mycavas {
+        background-color: #ffff;
+        box-sizing: border-box;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .btn {
+        width: 100px;
+        height: 40px;
+        margin-left: 40px;
+    }
+    
+    .red {
+        background-color: red;
+    }
+    
+    .black {
+        background-color: black;
+    }
+    
+    .blue {
+        background-color: blue;
+    }
+</style>
+
+</html>
