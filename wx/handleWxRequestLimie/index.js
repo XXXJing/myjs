@@ -15,14 +15,14 @@ const handleWxRequestLimit = (() => {
     let count = 0;
     // 请求完成以后释放当前请求的的标记方法
     const counter = () => {
-        count --;
+        count--;
     };
-    return function (fn) {
+    return function(fn) {
         // 判断当前当前请求的个数
-        if(count < 10) {
-            count ++;
+        if (count < 10) {
+            count++;
             // 执行释放标记的回调
-            fn(counter);
+            fn(counter); // request(fn);
         } else {
             setTimeout(handleWxRequestLimit.bind(null, fn), 300)
         }
@@ -34,7 +34,7 @@ const handleWxRequestLimit = (() => {
 const request = (fn) => {
     setTimeout(() => {
         console.log(new Date().getTime().toString().slice(-4));
-        fn()
+        fn() // counter
     }, 2000)
 };
 const requestList = Array(20).fill(1);
