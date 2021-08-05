@@ -8,7 +8,6 @@ window.onload = function() {
         video.srcObject = stream;
         video.onloadedmetadata = () => {
             video.play()
-
         }
 
 
@@ -17,7 +16,9 @@ window.onload = function() {
     btn.addEventListener('click', () => {
         const ctx = canvas.getContext('2d');
         console.log(video)
-        ctx.drawImage(video, 0, 0, 100, 100);
+        setInterval(() => {
+            ctx.drawImage(video, 0, 0, 100, 100);
+        }, 16.7);
         const image = canvas.toDataURL('image/png');
         const img = new Image();
         img.src = image;
@@ -36,8 +37,4 @@ window.onload = function() {
         }).catch();
     }
 
-
-    // function promiseDemo() {
-
-    // }
 }
